@@ -9,7 +9,7 @@ if (!empty($_GET['title']) and $_GET['password'] == $password) {
     $file_name = preg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '', $_GET['title']);
     $file_name = preg_replace("([\.]{2,})", '', $file_name);
     $file_name = str_replace(" ", "_", $file_name);
-    shell_exec('./monolith ' . $_GET['url'] . ' --isolate --output archive/' . $file_name . '.html');
+    shell_exec('monolith ' . $_GET['url'] . ' --isolate --output archive/' . $file_name . '.html');
     $f = fopen("archive/" . $file_name . ".txt", "a");
     fwrite($f, $_GET['title'] . "\n");
     fwrite($f, $_GET['url'] . "\n");
